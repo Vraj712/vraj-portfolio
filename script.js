@@ -1,39 +1,6 @@
-/* script.js */
+/* script.js - Final Version */
 
-/* script.js - Top Section */
-
-/* script.js */
-
-// 1. STUDIO LOADER LOGIC
-window.addEventListener("load", function () {
-    const loader = document.getElementById("preloader");
-    const percentText = document.querySelector(".loading-percent");
-    const barFill = document.querySelector(".loader-bar-fill");
-    
-    let loadCount = 0;
-    
-    // Simulate loading
-    const interval = setInterval(() => {
-        loadCount++;
-        
-        // Update the text
-        if(percentText) percentText.textContent = loadCount;
-        
-        // Update the bar width
-        if(barFill) barFill.style.width = loadCount + "%";
-        
-        if(loadCount === 100) {
-            clearInterval(interval);
-            
-            // Wait a moment, then slide up
-            setTimeout(() => {
-                loader.classList.add("loader-hidden");
-            }, 500); // 0.5s delay before opening
-        }
-    }, 20); // Speed of loading
-});
-
-// 2. TYPEWRITER EFFECT
+// 1. ANIMATION LOOP (Typewriter)
 const textElement = document.getElementById('typing-text');
 const texts = ["Computer Engineer", "Web Developer", "Creative Coder"];
 let count = 0;
@@ -55,7 +22,7 @@ let letter = "";
     }
 })();
 
-// 3. SCROLL REVEAL
+// 2. SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -65,37 +32,37 @@ const observer = new IntersectionObserver((entries) => {
 });
 document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 
-// 4. TOAST NOTIFICATION
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.className = "toast show";
-    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-}
+// 3. LOADER LOGIC
+window.addEventListener("load", function () {
+    const loader = document.getElementById("preloader");
+    const percentText = document.querySelector(".loading-percent");
+    const barFill = document.querySelector(".loader-bar-fill");
+    let loadCount = 0;
+    
+    const interval = setInterval(() => {
+        loadCount++;
+        if(percentText) percentText.textContent = loadCount;
+        if(barFill) barFill.style.width = loadCount + "%";
+        if(loadCount === 100) {
+            clearInterval(interval);
+            setTimeout(() => { loader.classList.add("loader-hidden"); }, 500);
+        }
+    }, 20);
+});
 
-// 5. PDF DOWNLOADER
+/* 4 In your main script.js */
+
 function downloadPDF() {
-    const element = document.getElementById('resume-area');
     const btn = document.getElementById('downloadBtn');
-    const originalText = btn.innerHTML;
     
-    btn.innerHTML = "Generating...";
+    // Feedback
+    btn.innerHTML = "<span>OPENING RESUME...</span>";
     
-    const opt = {
-      margin:       0,
-      filename:     'Vraj_Panchal_CV.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2, useCORS: true, scrollY: 0, backgroundColor: '#050505' },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-  
-    html2pdf().set(opt).from(element).save().then(() => {
-        btn.innerHTML = originalText;
-        showToast("Resume Downloaded Successfully!");
-    }).catch(err => {
-        console.error(err);
-        btn.innerHTML = originalText;
-        showToast("Error: Run on Local Server to fix!");
-        alert("To fix image download errors, please use VS Code 'Live Server' extension.");
-    });
+    setTimeout(() => {
+        // OPEN THE NEW FILE IN A NEW TAB
+        window.open('resume.html', '_blank');
+        
+        // Reset Button
+        btn.innerHTML = "INITIALIZE_CV_DOWNLOAD"; 
+    }, 500);
 }

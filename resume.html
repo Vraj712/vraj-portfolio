@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vraj Panchal - Resume</title>
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- PRINT-OPTIMIZED CSS --- */
+        :root {
+            --bg-deep: #02040a;
+            --text-main: #e0e6ed;
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --border: #333;
+        }
+
+        /* Force Dark Mode for Print */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep) !important;
+            color: var(--text-main) !important;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 40px; 
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* HEADER LAYOUT */
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo on the Page Styling */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Update this class in your <style> section */
+        .page-logo {
+            width: 100px;        /* Increased size slightly so faces look better */
+            height: 100px;
+            border-radius: 50%;  /* Makes it a perfect circle */
+            border: 3px solid var(--neon-blue);
+            padding: 3px;
+            object-fit: cover;   /* CRITICAL: Prevents the image from looking stretched */
+            object-position: top center; /* Focuses on your face */
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            line-height: 1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .contact-info div { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+        .contact-info i { color: var(--neon-purple); }
+
+        /* SECTIONS */
+        section { margin-bottom: 40px; break-inside: avoid; }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-left: 5px solid var(--neon-purple);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        /* GRIDS */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        .card {
+            border: 1px solid var(--border);
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            break-inside: avoid;
+        }
+        .card h3 { margin-top: 0; color: #fff; }
+        .card .sub { color: var(--neon-blue); font-size: 0.9rem; display: block; margin-bottom: 10px; }
+        .card p { color: #ccc; font-size: 0.95rem; line-height: 1.5; margin-bottom: 0; }
+
+        .tags span {
+            display: inline-block;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            color: #ccc;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+        }
+        
+        .print-btn-container { text-align: center; margin-bottom: 40px; }
+        .print-btn {
+            background: var(--neon-blue);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-btn-container no-print">
+        <button class="print-btn" onclick="window.print()">🖨️ Click Here to Save as PDF</button>
+        <p style="color:#aaa; margin-top:10px;">(Remember to check "Background Graphics" in settings!)</p>
+    </div>
+
+    <header>
+        <div class="header-left">
+            <img src="vraj-profile.jpg" alt="Vraj Panchal" class="page-logo">
+            
+            <div class="title-group">
+                <h1>Vraj Panchal</h1>
+                <div class="subtitle">Computer Engineer & Web Developer</div>
+                <p style="max-width: 500px; color: #888; margin-top: 10px; font-size: 0.9rem;">
+                    Building digital masterpieces with precision. Specializing in high-performance, 
+                    animated, and user-centric web solutions. 8.89 CGPA (GTU).
+                </p>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <div>vrajpanchal7123@gmail.com <i class="fas fa-envelope"></i></div>
+            <div>+91 6353336958 <i class="fas fa-phone"></i></div>
+            <div>Anand, Gujarat <i class="fas fa-map-marker-alt"></i></div>
+            <div><a href="https://vraj.dev" style="color: #fff; text-decoration: none;">vraj.dev</a> <i class="fas fa-globe"></i></div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Experience</h2>
+        <div class="card" style="margin-bottom: 20px;">
+            <h3>Web Developer</h3>
+            <span class="sub">SPEC - Sardar Patel Education Campus | 2024 - Present</span>
+            <p>Developing and maintaining dynamic, user-friendly websites and web applications. Collaborating with faculty and staff to deliver digital solutions for academic needs.</p>
+        </div>
+        <div class="card">
+            <h3>Web Developer Intern</h3>
+            <span class="sub">Zitech Solution | 2023 - 2024</span>
+            <p>Completed internship focusing on front-end and back-end web development. Assisted in designing, coding, and testing web-based solutions.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Featured Projects</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>SPEC Education Campus</h3>
+                <span class="sub">PHP, MySQL, Bootstrap</span>
+                <p>A multi-college ecosystem managing 7+ individual college sites with a centralized control panel.</p>
+            </div>
+            <div class="card">
+                <h3>Advanced College ERP</h3>
+                <span class="sub">Laravel, React, Node.js</span>
+                <p>Next-gen management system for educational institutions handling students, faculty, and admin modules.</p>
+            </div>
+            <div class="card">
+                <h3>Multi-Tenant Shop System</h3>
+                <span class="sub">Next.js, Tailwind</span>
+                <p>A scalable SaaS solution for managing inventory and billing across multiple mobile shop franchises.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="grid-2">
+            <div>
+                <h2>Education</h2>
+                <div class="card">
+                    <h3>Diploma in Engineering (DE)</h3>
+                    <span class="sub">IIET (GTU) | 2019-2022</span>
+                    <p><strong>CGPA: 8.89</strong> | SPI: 9.55</p>
+                </div>
+                <div class="card" style="margin-top: 20px;">
+                    <h3>Secondary School (SSC)</h3>
+                    <span class="sub">Laksh School, Bamanva | 2018-2019</span>
+                    <p>Percentage: 69.28%</p>
+                </div>
+            </div>
+            <div>
+                <h2>Technical Arsenal</h2>
+                <div class="card">
+                    <div class="tags">
+                        <span>HTML5</span> <span>CSS3</span> <span>Bootstrap5</span>
+                        <span>JavaScript</span> <span>jQuery</span> <span>React</span>
+                        <span>Next.js</span> <span>Laravel</span> <span>PHP</span>
+                        <span>Tailwind</span> <span>Python (Basic)</span>
+                    </div>
+                </div>
+                <h2 style="margin-top: 30px;">Soft Skills</h2>
+                <div class="card">
+                    <div class="tags">
+                        <span>Problem-Solving</span> <span>Communication</span>
+                        <span>Team Work</span> <span>Quick Learner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Personal Details</h2>
+        <div class="grid-2" style="font-size: 0.9rem; color: #ccc;">
+            <div class="card">
+                <p><strong>DOB:</strong> 07/12/2003</p>
+                <p><strong>Nationality:</strong> Indian</p>
+            </div>
+            <div class="card">
+                <p><strong>Languages:</strong> English, Hindi, Gujarati</p>
+                <p><strong>Hobbies:</strong> Gaming, Traveling, Tech Movies</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>"I do hereby declare that the above information is true to the best of my knowledge."</p>
+        <h3 style="margin-top: 10px; color: #fff;">Vraj Panchal</h3>
+    </footer>
+
+</body>
+</html>

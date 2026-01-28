@@ -488,3 +488,92 @@ main { padding: 80px 10%; }
     animation: blinkStatus 1s infinite;
 }
 @keyframes blinkStatus { 50% { opacity: 0.5; } }
+
+/* --- FINAL PDF REPAIR STYLES --- */
+@media print {
+    /* 1. RESET THE PAGE FLOW (Crucial for Multi-page) */
+    html, body {
+        height: auto !important;
+        overflow: visible !important;
+        position: static !important;
+    }
+
+    /* 2. FORCE DARK THEME */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    body {
+        background-color: #02040a !important;
+        color: #fff !important;
+    }
+
+    /* 3. UNLOCK THE SCROLLABLE CONTENT */
+    main {
+        display: block !important; /* Disables flex/grid locking */
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 40px !important;
+    }
+
+    /* 4. HIDE SCREEN-ONLY ELEMENTS */
+    .glass-nav, 
+    #preloader, 
+    .bg-scene, 
+    #toast, 
+    .cursor, 
+    .hologram-btn,
+    .contact-row a, /* Hides buttons but we need the text */
+    .hero-visual,   /* Hide the big liquid image to save space */
+    .bg-grid-floor,
+    .cta-row {
+        display: none !important;
+    }
+
+    /* 5. RESTRUCTURE LAYOUT FOR PAPER */
+    .hero {
+        min-height: auto !important;
+        padding-top: 40px !important;
+        display: block !important;
+        margin-bottom: 40px !important;
+    }
+    .hero-content {
+        width: 100% !important;
+        text-align: left !important;
+    }
+    
+    /* 6. FORCE GRIDS TO BE VERTICAL LISTS */
+    .project-grid, 
+    .grid-2-col, 
+    .personal-grid, 
+    .stats-glass-row {
+        display: block !important;
+    }
+
+    /* 7. PREVENT CUTTING ITEMS IN HALF */
+    .cyber-card, 
+    .timeline-entry, 
+    .card, 
+    .info-box,
+    .stat-glass {
+        break-inside: avoid;       /* Chrome/Safari */
+        page-break-inside: avoid;  /* Firefox */
+        margin-bottom: 20px !important;
+        border: 1px solid #444 !important;
+    }
+
+    /* 8. ENSURE TEXT IS VISIBLE */
+    h1, h2, h3, h4, p, span, div {
+        color: #fff !important;
+        text-shadow: none !important;
+    }
+
+    /* 9. SHOW LINKS AS TEXT */
+    a { text-decoration: none !important; color: #fff !important; }
+    
+    /* 10. CLEAN UP FOOTER */
+    .cyber-footer {
+        margin-top: 40px !important;
+        border-top: 1px solid #444 !important;
+    }
+}
